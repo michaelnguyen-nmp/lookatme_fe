@@ -1,0 +1,460 @@
+@use "../../styles/main.scss" as *;
+
+body {
+  line-height: 1.6;
+  height: 100vh; /* full screen height */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  border-radius: 12px;
+}
+
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+.illustration {
+  margin-top: 50px;
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+  max-height: 300px;
+}
+
+.authFigure {
+  flex: 1;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.authFigcaption {
+  position: absolute;
+  top: 130px;
+  left: 80%;
+  width: 140px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  padding: 12px;
+  font-size: 1.3rem;
+  color: #333;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+  }
+  &::before {
+    width: 16px;
+    height: 16px;
+    left: -10px;
+    bottom: 20px;
+  }
+
+  &::after {
+    width: 10px;
+    height: 10px;
+    left: -20px;
+    bottom: 8px;
+  }
+}
+
+.authDesc {
+  margin: 6px 0;
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+.authFigure {
+  .logo {
+    width: 250px;
+    border-radius: 100%;
+    margin-bottom: 30px;
+  }
+  .illustration {
+    margin-top: 50px;
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+    max-height: 300px;
+  }
+}
+
+/* === FORM === */
+.authenticate {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.form {
+  width: 360px;
+  padding: 32px 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .heading {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+
+  .spacer {
+    margin-top: 24px;
+  }
+
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    text-align: left;
+
+    .formLabel {
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .formControl {
+      height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1.4rem;
+      background-color: var(--input-bg);
+      outline: none;
+
+      &:focus {
+        border-color: var(--primary);
+      }
+
+      .formMessage {
+        font-size: 1.2rem;
+        color: #f33a58;
+        margin-top: 4px;
+      }
+
+      .formSubmit {
+        width: 100%;
+        padding: 12px;
+        background-color: var(--primary);
+        color: var(--text-white);
+        font-size: 1.6rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 16px;
+      }
+
+      &:hover {
+        background-color: var(--primary);
+      }
+    }
+  }
+}
+
+.formSubmitDesc {
+  display: none;
+}
+
+.formSubmitDesc {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: var(--primary);
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
+
+/* Buble */
+.authFigcaption {
+  position: absolute;
+  top: 130px;
+  left: 80%;
+  width: 140px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  padding: 12px;
+  font-size: 1.3rem;
+  color: #333;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+  }
+  &::before {
+    width: 16px;
+    height: 16px;
+    left: -10px;
+    bottom: 20px;
+  }
+  &::after {
+    width: 10px;
+    height: 10px;
+    left: -20px;
+    bottom: 8px;
+  }
+}
+
+.authDesc {
+  margin: 6px 0;
+  a {
+    color: #2196f3;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Ground & plants */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, #a5d6a7 0%, transparent 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.grass {
+  width: 60px;
+  height: 60px;
+  background: none;
+  background-image: radial-gradient(
+      circle at 20% 100%,
+      #388e3c 2px,
+      transparent 0
+    ),
+    radial-gradient(circle at 40% 100%, #388e3c 2px, transparent 0),
+    radial-gradient(circle at 60% 100%, #388e3c 2px, transparent 0);
+  background-size: 20px 60px;
+  animation: sway 3s infinite ease-in-out;
+}
+
+.leaf {
+  width: 8px;
+  height: 18px;
+  background: #4caf50;
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+  animation: leafSway 2.8s ease-in-out infinite;
+}
+.leaf2 {
+  transform: scale(1.2) rotate(10deg);
+  animation-delay: 1s;
+}
+
+@keyframes leafSway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Flower */
+.flower {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  animation: float 5s infinite ease-in-out;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    border-radius: 50%;
+  }
+  &::before {
+    top: -8px;
+    left: 2px;
+  }
+  &::after {
+    top: 8px;
+    left: 2px;
+  }
+  &.red {
+    background: radial-gradient(circle, #f44336, #b71c1c);
+  }
+  &.yellow {
+    background: radial-gradient(circle, #ffeb3b, #fbc02d);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Butterfly */
+.butterfly {
+  position: absolute;
+  top: 58%;
+  left: 10%;
+  width: 32px;
+  height: 32px;
+  animation: flutter 4s infinite ease-in-out;
+  & .wing {
+    width: 20px;
+    height: 20px;
+    background: #e91e63;
+    border-radius: 50%;
+    position: absolute;
+  }
+  & .wingLeft {
+    left: -10px;
+    top: 0;
+  }
+  & .wingRight {
+    right: -10px;
+    top: 0;
+  }
+  & .body {
+    width: 6px;
+    height: 20px;
+    background: #333;
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes flutter {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Bee */
+.bee {
+  position: absolute;
+  top: 10px;
+  right: 10%;
+  width: 20px;
+  height: 12px;
+  background: yellow;
+  border-radius: 50%;
+  border: 1px solid #000;
+  animation: buzz 3s infinite ease-in-out;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(200, 200, 255, 0.6);
+    border-radius: 50%;
+    top: -6px;
+  }
+  &::before {
+    left: -4px;
+  }
+  &::after {
+    right: -4px;
+  }
+}
+
+@keyframes buzz {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(2px, -3px);
+  }
+  75% {
+    transform: translate(-1px, 2px);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 806px) {
+  .authContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .authFigure {
+    .authFigcaption {
+      display: none;
+    }
+    .illustration {
+      display: none;
+    }
+  }
+
+  .formSubmitDesc {
+    display: block;
+    &:hover {
+      color: var(--accent-orange);
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@use "../../styles/main.scss" as *;
+
+.postCreator {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.postCreatorWrap {
+  width: 100%;
+}
+
+.postCreatorContent {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: var(--input-bg);
+
+  &:hover {
+    border-bottom: 1px solid var(--border);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-green);
+  }
+}
+
+.postCreatorActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 18px 0;
+  gap: 8px;
+  font-size: 1.8rem;
+  a {
+    i {
+      &:hover {
+        color: #e3dde1;
+      }
+    }
+  }
+}
+
+/* Post list */
+
+.postListItem {
+  margin-top: 20px;
+  padding: 20px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: transform(0.2s);
+
+  &:hover {
+    background: var(--input-bg);
+    transform: scale(1.01);
+  }
+}
+
+.postItemWrap {
+  display: flex;
+  align-items: center;
+}
+
+.postItemInfo {
+  margin-left: 10px;
+}
+
+.postItemInfoName {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.postItemInfoTime {
+  margin-left: 10px;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--text-black);
+    border-radius: 100%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+}
+
+.postItemFigure {
+  margin: 20px 0 30px 0;
+}
+
+.postItemFigcation {
+  margin: 20px 0;
+}
+
+.postItemShowMore {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.postItemMedia {
+  max-width: 100%;
+}
+
+.postItemImage {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.post-itemVideo {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.postItemActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.postItemActionsLink {
+  .quantity {
+    margin-left: 6px;
+  }
+  &:hover {
+    color: #dd32a1;
+  }
+}

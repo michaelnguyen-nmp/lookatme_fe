@@ -1,0 +1,11 @@
+@use "../../components/AuthLayout/AuthLayout.module.scss" as *;
+
+.forgetPassword {
+  margin-top: 20px;
+  font-size: 1.3rem;
+
+  color: var(--primary);
+  &:hover {
+    color: var(--accent-orange);
+  }
+}

@@ -1,0 +1,18 @@
+@use "../styles/main.scss" as *;
+.main {
+  flex: 1;
+  width: 566px;
+  padding: 20px;
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  overflow-y: auto; /* chỉ phần này được cuộn */
+}
+
+.mainHeader {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  cursor: pointer;
+}
