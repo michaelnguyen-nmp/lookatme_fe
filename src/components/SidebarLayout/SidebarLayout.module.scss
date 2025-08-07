@@ -1,0 +1,103 @@
+@use "../../styles/main.scss" as *;
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden; /* không cuộn */
+}
+
+.sidebarItem {
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  gap: 15px;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: transform 0.2s;
+
+  &:hover {
+    background: var(--accent-blue);
+    border-radius: 24px;
+    transform: scale(1.08);
+  }
+}
+
+.profile {
+  position: fixed;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profileWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.userWrap {
+  span {
+    display: block;
+    margin-right: 20px;
+  }
+}
+
+.profileName {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ---------------------- Responsive ---------------------- */
+
+@media (max-width: 1018px) {
+  .rightbar {
+    display: none;
+  }
+}
+
+@media (max-width: 1108px) {
+}
+
+@media (max-width: 1294px) {
+  .sidebar {
+    width: 72px;
+    a {
+      span:last-child {
+        display: none;
+      }
+    }
+  }
+
+  .profileWrap {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px;
+    a {
+      justify-content: center;
+    }
+  }
+
+  .profileWrap {
+    display: none;
+  }
+}
