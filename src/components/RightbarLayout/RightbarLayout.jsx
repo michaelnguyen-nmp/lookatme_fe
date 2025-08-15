@@ -3,6 +3,7 @@ import {} from "react";
 import styles from "./RightbarLayout.module.scss";
 import avatar from "../../assets/img/avatar.jpg";
 import { Link } from "react-router-dom";
+import WeatherWidget from "../Weather/WeatherWidget";
 
 const RightbarLayout = () => {
   return (
@@ -61,26 +62,30 @@ const RightbarLayout = () => {
         </button>
       </article>
 
-      <article className={styles.todos}>
-        <h3 className={styles.todosHeader}>To do</h3>
+      <article className={styles.weather}>
+        <h3 className={styles.weatherHeader}>Your Daily Weather</h3>
+        <WeatherWidget city="Ho Chi Minh" />
       </article>
 
+      {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.footerLinks}>
-          <a className={styles.footerLink} href="#">
+          <Link className={styles.footerLink} to="/privacy-policy">
             Privacy Policy
-          </a>
-          <a className={styles.footerLink} href="#">
+          </Link>
+          <Link className={styles.footerLink} to="/accessibility">
             Accessibility
-          </a>
-          <a className={styles.footerLink} href="#">
+          </Link>
+          <Link className={styles.footerLink} to="/about">
             About Us
-          </a>
-          <a className={styles.footerLink} href="#">
+          </Link>
+          <Link className={styles.footerLink} to="/more">
             More...
-          </a>
+          </Link>
         </div>
-        <div className={styles.footerLink}>© 2025 Look At Me</div>
+        <Link className={styles.footerShortLink} to="/privacy-policy">
+          © 2025 Look At Me
+        </Link>
       </footer>
     </aside>
   );

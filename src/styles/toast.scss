@@ -1,0 +1,65 @@
+.lockatme-toast {
+  background: linear-gradient(135deg, #a88cf5, #ff9aa2);
+  color: #fff;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 1.05rem; // chữ to hơn
+  font-weight: 500;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 280px;
+  max-width: 400px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: fadeInRight 0.3s ease forwards;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Responsive cho mobile */
+  @media (max-width: 480px) {
+    min-width: unset;
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 12px 14px;
+    border-radius: 10px;
+
+    .toast-close {
+      font-size: 1rem;
+      padding: 2px 6px;
+    }
+  }
+}
+
+/* Animation xuất hiện từ phải vào */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation biến mất mờ dần */
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Thêm class để toast biến mất */
+.lockatme-toast.toast-leave {
+  animation: fadeOutRight 0.3s ease forwards;
+}

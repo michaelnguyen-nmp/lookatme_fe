@@ -54,6 +54,18 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.(mp4|webm|ogg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[hash].[ext]",
+              outputPath: "videos/",
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

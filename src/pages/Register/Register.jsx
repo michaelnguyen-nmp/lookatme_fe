@@ -1,9 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../components/AuthLayout/AuthLayout";
 import styles from "./Register.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+
+const URL = "http://localhost:8000/api/auth/register";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [fullname, setFullname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const hanleRegister = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        URL,
+        {
+          fullname,
+          username,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
+      localStorage.setItem("token", res.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      toast.success("Register successful!");
+      navigate("/");
+    } catch (err) {
+      const errorMessage =
+        err.response?.data?.message ||
+        "Registration failed, please try again later!";
+      toast.error(errorMessage);
+    }
+  };
+
   return (
     <AuthLayout isLogin={false}>
       <div className={styles.form}>
@@ -11,21 +54,24 @@ const Register = () => {
           action="#"
           method="post"
           id="formRegister"
+          onSubmit={hanleRegister}
           encType="multipart/form-data"
         >
-          <h3 className={styles.heading}>Đăng Ký</h3>
+          <h3 className={styles.heading}>Register</h3>
 
           <div className={styles.spacer}></div>
 
           <div className={styles.formGroup}>
-            <label for="fullname" className={styles.formLabel}>
-              Họ và tên
+            <label htmlFor="fullname" className={styles.formLabel}>
+              Full Name
             </label>
             <input
               id={styles.fullname}
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
               name="fullname"
               type="text"
-              placeholder="VD: Nguyễn Minh Phúc"
+              placeholder="e.g., Michael Nguyen"
               className={styles.formControl}
               required
             />
@@ -33,32 +79,36 @@ const Register = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label for="username" className={styles.formLabel}>
-              Tên đăng nhập
+            <label htmlFor="username" className={styles.formLabel}>
+              User name
             </label>
             <input
               id={styles.username}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               name="username"
               type="text"
-              placeholder="VD: MifuDepTrai"
+              placeholder="e.g., BunnyFuFuu"
               className={styles.formControl}
               pattern="^[[A-Z]|[a-z]][[A-Z]|[a-z]|\\d|[_]]{7,29}$"
-              minlength="4"
-              maxlength="16"
+              minLength="4"
+              maxLength="16"
               required
             />
             <span className={styles.formMessage}></span>
           </div>
 
           <div className={styles.formGroup}>
-            <label for="email" className={styles.formLabel}>
+            <label htmlFor="email" className={styles.formLabel}>
               Email
             </label>
             <input
               id={styles.email}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               name="email"
               type="text"
-              placeholder="Nhập Email của bạn..."
+              placeholder="Enter your email..."
               className={styles.formControl}
               required
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -67,14 +117,16 @@ const Register = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label for="password" className={styles.formLabel}>
-              Mật khẩu
+            <label htmlFor="password" className={styles.formLabel}>
+              Password
             </label>
             <input
               id={styles.password}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               name="password"
               type="password"
-              placeholder="Nhập mật khấu của bạn..."
+              placeholder="Enter your password..."
               className={styles.formControl}
               required
             />
@@ -82,14 +134,16 @@ const Register = () => {
           </div>
 
           <div className={styles.formGroup}>
-            <label for="passwordConfirmation" className={styles.formLabel}>
-              Nhập lại mật khẩu
+            <label htmlFor="confirmPassword" className={styles.formLabel}>
+              Confirm Password
             </label>
             <input
-              id={styles.passwordConfirmation}
-              name="passwordConfirmation"
+              id={styles.confirmPassword}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              name="confirmPassword"
               type="password"
-              placeholder="Nhập lại mật khẩu..."
+              placeholder="Re-enter your password..."
               className={styles.formControl}
               required
             />
@@ -97,7 +151,7 @@ const Register = () => {
           </div>
 
           <button className={`${styles.formSubmit} ${styles.btn}`}>
-            Đăng ký
+            Sign Up
           </button>
           <p className={styles.formSubmitDesc}>
             <Link to="/login">Already have an account? Log In</Link>

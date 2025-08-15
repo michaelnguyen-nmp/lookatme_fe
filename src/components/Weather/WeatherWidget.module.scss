@@ -1,0 +1,109 @@
+.weatherWidget {
+  background: linear-gradient(135deg, #a88cf5, #ff9aa2);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  max-width: 300px;
+  color: var(--text-white);
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.city {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.temp {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.desc {
+  text-transform: capitalize;
+  margin: 4px 0;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+}
+
+.day {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.date {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.tempRange {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1108px) {
+  .weatherWidget {
+    max-width: 260px;
+    padding: 12px;
+    font-size: 0.95rem;
+
+    .city {
+      font-size: 1.2rem;
+    }
+
+    .temp {
+      font-size: 1.6rem;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .details {
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+
+    // Chỉ hiển thị 4 ngày forecast
+    .forecast {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden; // ẩn phần thừa
+      gap: 6px;
+
+      .day {
+        flex: 0 0 calc(25% - 6px); // 4 cột đều nhau
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

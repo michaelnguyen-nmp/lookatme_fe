@@ -36,13 +36,15 @@ main {
   margin-left: auto;
 }
 
-/* general */
-
 .avatar {
   width: 48px;
   height: 48px;
   border-radius: 100%;
   cursor: pointer;
+  border: 2px solid black;
+  &:hover {
+    border: 3px solid rgb(35, 145, 228);
+  }
 }
 
 .btn {
@@ -63,4 +65,27 @@ main {
 .logo {
   width: 100%;
   border-radius: 100%;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
 }

@@ -39,6 +39,7 @@
   padding: 20px 20px;
   border: 1px solid var(--border);
   border-radius: 20px;
+  height: 390px;
 }
 
 .followingHeader {
@@ -76,15 +77,15 @@
   margin-bottom: 6px;
 }
 
-/* Todo */
-.todos {
+/* Weather */
+.weather {
   padding: 20px 20px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  min-height: 300px;
 }
 
-.todosHeader {
+.weatherHeader {
+  margin-bottom: 10px;
   font-size: 2.2rem;
   font-weight: 600;
 }
@@ -121,18 +122,27 @@
   .rightbar {
     width: 290px;
   }
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+
+  .following {
+    width: 290px;
+    height: 440px;
+  }
+  .weather {
+    width: 290px;
+    height: 340px;
   }
 
-  .footer-link {
-    flex: 1 1 45%;
-    text-align: center;
+  .footerLinks {
+    display: none;
+  }
+
+  .footerShortLink {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 35px;
   }
 }
+
 @media (max-width: 1018px) {
   .rightbar {
     display: none;
