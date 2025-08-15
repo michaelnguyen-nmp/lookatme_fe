@@ -22,7 +22,9 @@ const AuthLayout = ({ children, isLogin }) => {
     <main>
       <div className={styles.authContainer}>
         <figure className={styles.authFigure}>
-          <img src={logo} alt="Logo" className={styles.logo} />
+          <Link to="/">
+            <img src={logo} alt="Logo" className={styles.logo} />
+          </Link>
           <img
             src={illustration}
             alt="illustration"
