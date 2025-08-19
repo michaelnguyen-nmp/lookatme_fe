@@ -10,6 +10,8 @@ import {
 import L from "leaflet";
 import styles from "./LocationPicker.module.scss";
 
+const LOCATION_API = "http://localhost:8000/api/location/reverse-geocode";
+
 const markerIcon = new L.Icon({
   iconUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
@@ -72,7 +74,7 @@ export default function LocationPicker({
   const fetchLocationName = async ({ lat, lng }) => {
     try {
       const res = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`
+        `${LOCATION_API}?lat=${lat}&lon=${lng}&format=json`
       );
       const data = await res.json();
 
