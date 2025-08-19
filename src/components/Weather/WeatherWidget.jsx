@@ -5,7 +5,8 @@ import styles from "./WeatherWidget.module.scss";
 const WeatherWidget = ({ city = "Ho Chi Minh" }) => {
   const [current, setCurrent] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const API_KEY = "cf0c2f422878db4133533aba0a1cb577";
+
+  const API_KEY = process.env.WEATHER_API;
 
   useEffect(() => {
     const fetchWeather = async () => {

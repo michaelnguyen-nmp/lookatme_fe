@@ -45,6 +45,13 @@
   flex-wrap: wrap;
   gap: 8px;
   font-size: 0.9rem;
+  span {
+    transition: transform(0.2s);
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 .forecast {
@@ -58,6 +65,10 @@
 .day {
   text-align: center;
   font-size: 0.8rem;
+  transition: transform(0.2s);
+  &:hover {
+    transform: scale(1.06);
+  }
 }
 
 .date {
@@ -68,6 +79,8 @@
 .tempRange {
   font-size: 0.85rem;
 }
+
+// Responsive
 
 @media (max-width: 1108px) {
   .weatherWidget {
@@ -93,15 +106,14 @@
       font-size: 0.85rem;
     }
 
-    // Chỉ hiển thị 4 ngày forecast
     .forecast {
       display: flex;
       flex-wrap: nowrap;
-      overflow: hidden; // ẩn phần thừa
+      overflow: hidden;
       gap: 6px;
 
       .day {
-        flex: 0 0 calc(25% - 6px); // 4 cột đều nhau
+        flex: 0 0 calc(25% - 6px);
         font-size: 0.75rem;
       }
     }

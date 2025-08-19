@@ -99,12 +99,16 @@ const SidebarLayout = () => {
 
       {user ? (
         <>
-          <span className={styles.sidebarItem} onClick={handleLogout}>
+          <Link
+            to="/login"
+            className={styles.sidebarItem}
+            onClick={handleLogout}
+          >
             <span>
               <i className="fa-solid fa-right-to-bracket"></i>
             </span>
             <span>Log out</span>
-          </span>
+          </Link>
 
           <section className={`${styles.sidebarItem} ${styles.profile}`}>
             <img
